@@ -1,23 +1,23 @@
 class UsersController < ApplicationController
 
-    def index
-        @users = User.all
-        
-
-        #authentication 
-        #if sign up, redirect_to new page 
-
-        #if sign in, redirect_to user_path(@user)
-    end
-
     def new
         @user = User.new
+        @goals = Goal.all
+
 
     end
 
     def create
-        @user = User.create(user_params)
-        redirect_to user_path(@user)
+        user = User.create(user_params)
+
+        if user.valid?
+            session[:user_id] = user.id
+            redirect_to user_path(user)
+        else
+            flash[:errors] = user.errors.full_messages
+            redirect_to new_user_path
+        end
+
     end
 
     def show
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(:username, :password, :confirm_password, :first_name, :last_name, :image, :diet_restriction, :age, :height, :weight, :gender, :activity)
+        params.require(:user).permit(:username, :first_name, :last_name, :image, :age, :height, :weight, :gender, :activity, :password, :goal)
     end
 
 

@@ -36,8 +36,8 @@
       <%= f.label :activity  %>
       <%= f.select :activity, ['Sedentary', 'Moderate', 'Active', 'Very Active'], :prompt => 'Select One' %>
     <br>
-      <%= f.label :goal %>
-      <%= f.collection_select :goal, @goals, :id, :name  %>
+      <%= f.label :fit_goal %>
+      <%= f.collection_select :fit_goal, @goals, :name, :name  %>
     <br>
     byebug
     <%= f.submit %>

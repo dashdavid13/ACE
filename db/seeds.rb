@@ -20,8 +20,8 @@ User.create(username: "joey_tech", first_name: "Joseph", last_name: "Doe", image
 Workout.create(name: "Cycling", description: "Biking is a top-notch cardio workout. It'll strengthens your lower body, including your legs, hips, and glutes. If you want a workout that’s gentle on your back, hips, knees, and ankles, this is a great choice.", detail: "30-60 minutes", video: "", image: " " )
 Workout.create(name: "Running", description: "Running is a form of cardio exercise that's easily accessible. It is one of the most straightforward ways to get the important benefits of exercise. Since it improves aerobic fitness, running is a great way to help improve cardiovascular health.", detail: "45 - 60 minutes", video: " ", image: " ")
 
-
+Goal.create(name: "Fat Loss", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
 Goal.create(name: "Muscle Gain", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
 Goal.create(name: "Endurance", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
 Goal.create(name: "Strength", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
-Goal.create(name: "Maintenance Body Recomposition", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
+Goal.create(name: "Maintenance/Body Recomposition", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)

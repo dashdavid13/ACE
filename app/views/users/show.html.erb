@@ -1,7 +1,30 @@
+<%= image_tag url_for(@user.image) %>
+
 <h3> <%= @user.full_name %> </h3>
+
 
 <li> Age: <%= @user.age %> </li>
 <li> Height: <%= @user.height %> </li>
 <li> Weight: <%= @user.weight %> </li>
 <li> Gender: <%= @user.gender %> </li>
 <li> Activity: <%= @user.activity %> </li>
+<li> Goal: <%= @user.goal.name %> </li>
+
+<h5>recommened diet </h5>
+<%= @user.goal.diet.name%>
+<br>
+<h5>chosen diet </h5>
+<% if @user.find_current_diet_plan%>
+<%= @user.find_current_diet_plan.diet.name%>
+<%else%>
+<p>No costum plan</p>
+<%end%> 
+
+
+
+<% if @user.goal.name == "Maintenance Body Recomposition" %>
+
+<%end %>
+
+
+

@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @diets = Diet.all 
 
     end
 
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(:username, :first_name, :last_name, :image, :age, :height, :weight, :gender, :activity, :password, :goal)
+        params.require(:user).permit(:username, :first_name, :last_name, :image, :age, :height, :weight, :gender, :activity, :password, :goal_id)
     end
 
 

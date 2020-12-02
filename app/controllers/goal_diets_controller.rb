@@ -1,0 +1,2 @@
+class GoalDietsController < ApplicationController
+end

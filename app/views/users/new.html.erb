@@ -17,7 +17,7 @@
       <%= f.text_field :last_name  %>
     <br>
       <%= f.label :image  %>
-      <%= f.file_field :image, accept: 'image/png,image/jpeg'%> 
+      <%= f.file_field :image %> 
     <br>
       <%= f.label :age  %>
       <%= f.number_field :age  %>
@@ -36,10 +36,11 @@
       <%= f.label :activity  %>
       <%= f.select :activity, ['Sedentary', 'Moderate', 'Active', 'Very Active'], :prompt => 'Select One' %>
     <br>
-      <%= f.label :goal %>
-      <%= f.collection_select :goal, @goals, :id, :name  %>
+      <%= f.label :goal_id %>
+      <%= f.collection_select :goal_id, @goals, :id, :name  %>
     <br>
-    byebug
+
+    
     <%= f.submit %>
     
   <% end %>

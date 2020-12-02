@@ -11,17 +11,31 @@ User.destroy_all
 Workout.destroy_all
 Goal.destroy_all 
 
-Diet.create(name: "Ketogenic", description: "The ketogenic lifestyle is a very low carb, high fat diet that shares many similarities with the Atkins and low carb diets. It involves drastically reducing carbohydrate intake and replacing it with fat. This reduction in carbs puts your body into a metabolic state called ketosis, which becomes a fat burning machine.", restriction: "No Sugar and your daily intake of carbs should be less than 50 grams a day ", calorie: 0 , water: 0 )
-Diet.create(name: "Paleolithic", description: "The Paleolithic lifestyle is a weight loss plan based upon the premise of consuming only those foods available during the Paleolithic era (also known as the Stone Age). People at this time were hunter-gatherers, meaning that all animals were hunted and plants were gathered from nature.", restriction: " Processed foods, sugar, soft drinks, grains, most dairy products, legumes, artificial sweeteners, vegetable oils, margarine and trans fats.", calorie: 0 , water: 0)
-
-User.create(username: "angie235", first_name: "Angela", last_name: "Torres", image: "6",  age: 25, height: 6, weight: 130, gender: "6", activity: "6", password: "6")
-User.create(username: "joey_tech", first_name: "Joseph", last_name: "Doe", image: "6",  age: 32, height: 6, weight: 165, gender: "6", activity: "6", password:"6")
-
-Workout.create(name: "Cycling", description: "Biking is a top-notch cardio workout. It'll strengthens your lower body, including your legs, hips, and glutes. If you want a workout that’s gentle on your back, hips, knees, and ankles, this is a great choice.", detail: "30-60 minutes", video: "", image: " " )
-Workout.create(name: "Running", description: "Running is a form of cardio exercise that's easily accessible. It is one of the most straightforward ways to get the important benefits of exercise. Since it improves aerobic fitness, running is a great way to help improve cardiovascular health.", detail: "45 - 60 minutes", video: " ", image: " ")
+keto = Diet.create(name: "Ketogenic", description: "The ketogenic lifestyle is a very low carb, high fat diet that shares many similarities with the Atkins and low carb diets. It involves drastically reducing carbohydrate intake and replacing it with fat. This reduction in carbs puts your body into a metabolic state called ketosis, which becomes a fat burning machine.", restriction: "No Sugar and your daily intake of carbs should be less than 50 grams a day ", calorie: 0 , water: 0 )
+paleo = Diet.create(name: "Paleolithic", description: "The Paleolithic lifestyle is a weight loss plan based upon the premise of consuming only those foods available during the Paleolithic era (also known as the Stone Age). People at this time were hunter-gatherers, meaning that all animals were hunted and plants were gathered from nature.", restriction: " Processed foods, sugar, soft drinks, grains, most dairy products, legumes, artificial sweeteners, vegetable oils, margarine and trans fats.", calorie: 0 , water: 0)
+clean = Diet.create(name: "Low Fat", description: "The ketogenic lifestyle is a very low carb, high fat diet that shares many similarities with the Atkins and low carb diets. It involves drastically reducing carbohydrate intake and replacing it with fat. This reduction in carbs puts your body into a metabolic state called ketosis, which becomes a fat burning machine.", restriction: "No Sugar and your daily intake of carbs should be less than 50 grams a day ", calorie: 0 , water: 0 )
+plant = Diet.create(name: "Plant Based ", description: "The ketogenic lifestyle is a very low carb, high fat diet that shares many similarities with the Atkins and low carb diets. It involves drastically reducing carbohydrate intake and replacing it with fat. This reduction in carbs puts your body into a metabolic state called ketosis, which becomes a fat burning machine.", restriction: "No Sugar and your daily intake of carbs should be less than 50 grams a day ", calorie: 0 , water: 0 )
+protein = Diet.create(name: "High Protein", description: "The Paleolithic lifestyle is a weight loss plan based upon the premise of consuming only those foods available during the Paleolithic era (also known as the Stone Age). People at this time were hunter-gatherers, meaning that all animals were hunted and plants were gathered from nature.", restriction: " Processed foods, sugar, soft drinks, grains, most dairy products, legumes, artificial sweeteners, vegetable oils, margarine and trans fats.", calorie: 0 , water: 0)
 
 
-Goal.create(name: "Muscle Gain", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
-Goal.create(name: "Endurance", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
-Goal.create(name: "Strength", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
-Goal.create(name: "Maintenance Body Recomposition", user_id: User.all.sample.id, diet_id: Diet.all.sample.id, workout_id: Workout.all.sample.id)
+cycling = Workout.create(name: "Cycling", description: "Biking is a top-notch cardio workout. It'll strengthens your lower body, including your legs, hips, and glutes. If you want a workout that’s gentle on your back, hips, knees, and ankles, this is a great choice.", detail: "30-60 minutes", video: "", image: " " )
+running = Workout.create(name: "Running", description: "Running is a form of cardio exercise that's easily accessible. It is one of the most straightforward ways to get the important benefits of exercise. Since it improves aerobic fitness, running is a great way to help improve cardiovascular health.", detail: "45 - 60 minutes", video: " ", image: " ")
+weight  = Workout.create(name: "Weight Lifting", description: "Weight training is a common type of strength training for developing the strength and size of skeletal muscles. It utilizes the force of gravity in the form of weighted bars, dumbbells or weight stacks in order to oppose the force generated by muscle through concentric or eccentric contraction.", detail: "3-4 times/week", video: "", image: " " )
+power = Workout.create(name: "Power Lifting", description: "Running is a form of cardio exercise that's easily accessible. It is one of the most straightforward ways to get the important benefits of exercise. Since it improves aerobic fitness, running is a great way to help improve cardiovascular health.", detail: "45 - 60 minutes", video: " ", image: " ")
+
+
+
+fatloss = Goal.create(name: "Fat Loss", workout_id: cycling.id, diet_id: keto.id)
+muscle = Goal.create(name: "Muscle Gain", workout_id: weight.id, diet_id: paleo.id)
+endurance = Goal.create(name: "Endurance", workout_id: running.id, diet_id: plant.id)
+strength = Goal.create(name: "Strength", workout_id: power.id, diet_id: protein.id)
+maintainence= Goal.create(name: "Maintenance", workout_id: running.id, diet_id: clean.id)
+
+
+angela = User.create(username: "angie235", first_name: "Angela", last_name: "Torres", image: "https://vignette.wikia.nocookie.net/theoffice/images/b/b6/111423.jpg/revision/latest?cb=20101116030321",  age: 25, height: 6, weight: 130, gender: "6", activity: "6", password: "6", goal_id: fatloss.id)
+
+joseph = User.create(username: "joey_tech", first_name: "Joseph", last_name: "Doe", image: "https://pbs.twimg.com/media/DAM0C36VwAA19DM.jpg:large",  age: 32, height: 6, weight: 165, gender: "6", activity: "6", password:"6", goal_id: muscle.id )
+
+
+GoalDiet.create(user_id: angela.id, diet_id: protein.id, goal_id: fatloss.id) 
+GoalDiet.create(user_id: joseph.id, diet_id: keto.id, goal_id: muscle.id) 

@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :users
-  resources :diets, only: [:show, :edit, :update, :delete]
-  resources :workouts, only: [:show]
+  resources :diets, only: [:show, :edit, :update, :delete, :new]
+  resources :workouts, only: [:index, :show]
   resources :goals, only: [:index]
   resources :goal_diets
+  resources :goal_workouts, only: [:index,:show,:new]
 
   # get '/goal_diets/new', to: 'goal_diets#new', as: 'new_goal_diet'
   # post '/goal_diets', to: 'goal_diets#create'

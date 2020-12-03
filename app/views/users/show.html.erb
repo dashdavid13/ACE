@@ -31,8 +31,15 @@
  <%= render "form" %>
 <%end%> 
 <br>
-<h5>Your Workout: </h5>
-<li><%= link_to @user.goal.workout.name, workout_path(@user.goal.workout)%></li>
+<h5><%= link_to "Your Workouts", goal_workout_path(@current_user.goal.goal_workouts) %> </h5>
+
+
+
+
+
+
+
+
 
 <br>
 <br>

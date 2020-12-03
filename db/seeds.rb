@@ -30,20 +30,24 @@ basketball = Workout.create(name: " Basketball", description: "", detail: "", vi
 walking = Workout.create(name: "Walking", description: "", detail: "", video: "", image: "")
 dancing = Workout.create(name: "Dancing", description: "", detail: "", video: "", image: "")
 
-fatloss = Goal.create(name: "Fat Loss", workout_id: cycling.id, diet_id: keto.id)
-muscle = Goal.create(name: "Muscle Gain", workout_id: weight.id, diet_id: paleo.id)
-endurance = Goal.create(name: "Endurance", workout_id: running.id, diet_id: plant.id)
-strength = Goal.create(name: "Strength", workout_id: weight.id, diet_id: protein.id)
-maintainence = Goal.create(name: "Maintenance", workout_id: swimming.id, diet_id: clean.id)
-self_defense = Goal.create(name: "Self Defense", workout_id: jiujitsu.id, diet_id: clean.id)
+weightloss = Goal.create(name: "Weight Loss", diet_id: keto.id)
+muscle = Goal.create(name: "Muscle Gain", diet_id: paleo.id)
+endurance = Goal.create(name: "Endurance", diet_id: plant.id)
+strength = Goal.create(name: "Strength",  diet_id: protein.id)
+maintainence = Goal.create(name: "Maintenance",  diet_id: clean.id)
+self_defense = Goal.create(name: "Self Defense",  diet_id: clean.id)
 
+a = GoalWorkout.create(goal_id: weightloss.id, workout_id: cycling.id)
+b = GoalWorkout.create(goal_id: weightloss.id, workout_id: running.id)
+c = GoalWorkout.create(goal_id: muscle.id, workout_id: yoga.id)
+d = GoalWorkout.create(goal_id: muscle.id, workout_id: weight.id)
+e = GoalWorkout.create(goal_id: maintainence.id, workout_id: swimming.id)
 
-# fatloss = Goal.create(name: "Fat Loss", workout_id_1: cycling.id, workout_id_2: running.id, workout_id_3: weight.id, workout_id_4: hiit.id, workout_id_5: yoga.id, workout_id_6: swimming.id, workout_id_7: jiujitsu.id, workout_id_8: basketball.id, workout_id_9: walking.id, workout_id_10: dancing.id, diet_id: keto.id)
 
 angela = User.create(username: "angie235", first_name: "Angela", last_name: "Torres", image: "https://vignette.wikia.nocookie.net/theoffice/images/b/b6/111423.jpg/revision/latest?cb=20101116030321",  age: 25, height: 6, weight: 130, gender: "6", activity: "6", password: "6", goal_id: fatloss.id)
 
 joseph = User.create(username: "joey_tech", first_name: "Joseph", last_name: "Doe", image: "https://pbs.twimg.com/media/DAM0C36VwAA19DM.jpg:large",  age: 32, height: 6, weight: 165, gender: "6", activity: "6", password:"6", goal_id: muscle.id )
 
 
-GoalDiet.create(user_id: angela.id, diet_id: protein.id, goal_id: fatloss.id) 
+GoalDiet.create(user_id: angela.id, diet_id: protein.id, goal_id: weightloss.id) 
 GoalDiet.create(user_id: joseph.id, diet_id: keto.id, goal_id: muscle.id)

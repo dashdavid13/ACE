@@ -15,8 +15,8 @@
      <%= yield %>
     <% if @current_user %>
     <%= link_to "Logout", logout_path, method: :delete  %></li>
-    <%= link_to "Workouts", workout_path(@current_user.goal.workout) %>
-    <%= link_to "Lifestyles", diet_path(@current_user.find_current_diet_plan.diet) %>
+    
+   
     <%= link_to "Profile", user_path(@current_user)%>
     Welcome <%= @current_user.full_name %></li>
   <% else %>

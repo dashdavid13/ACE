@@ -1,0 +1,2 @@
+module GoalWorkoutsHelper
+end

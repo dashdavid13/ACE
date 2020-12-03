@@ -1,0 +1,10 @@
+<h3> Your Workouts </h3>
+<br>
+<% @workouts.each do |gw| %>
+    <%= gw.workout.name %>
+    <li>Description: <%= gw.workout.description %> </li>
+    <li>Details: <%= gw.workout.detail %> </li>
+    <li>Need Image Here</li>
+    <li>YouTube Link: <%= gw.workout.video %> </li>
+    <br>
+    <%end%>

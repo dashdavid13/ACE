@@ -34,7 +34,7 @@
       <%= f.radio_button :gender, 'Female'  %>
     <br>
       <%= f.label :activity  %>
-      <%= f.select :activity, ['Sedentary', 'Moderate', 'Active', 'Very Active'], :prompt => 'Select One' %>
+      <%= f.select :activity, ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extremely Active'], :prompt => 'Select One' %>
     <br>
       <%= f.label :goal_id %>
       <%= f.collection_select :goal_id, @goals, :id, :name  %>

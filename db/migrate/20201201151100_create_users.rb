@@ -11,7 +11,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :gender 
       t.string :activity
       t.string :password_digest
-      t.string :fit_goal
+      t.integer :goal_id
 
       t.timestamps
     end

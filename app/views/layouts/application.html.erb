@@ -11,5 +11,18 @@
 
   <body>
     <%= yield %>
+    
+    <% if @current_user %>
+    <%= link_to "Logout", logout_path, method: :delete  %></li>
+    <%= link_to "Workouts", workout_path(@current_user.goal.workout) %>
+    <%= link_to "Lifestyles", diet_path(@current_user.goal.diet) %>
+    <%= link_to "Profile", user_path(@current_user)%>
+    Welcome <%= @current_user.full_name %></li>
+  <% else %>
+    <%= link_to "Sign Up", new_user_path %></li>
+    <%= link_to "Login", new_login_path %></li>
+  <% end %>
+
+
   </body>
 </html>

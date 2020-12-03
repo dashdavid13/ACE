@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+    skip_before_action :authorized, only: [:new, :create]
+
+    def index
+    end
+
 
     def new
         @user = User.new
         @goals = Goal.all
-
-
     end
 
     def create
@@ -22,11 +25,22 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @diets = Diet.all 
+
+        if @user == @current_user
+            render :show
+        else
+            redirect_to new_login_path
+            flash[:error] = 'You cannot view other profiles!'
+            ### need error message - You don't have access to this page 
+        end
 
     end
 
     def edit 
         @user = User.find(params[:id])
+        @diets = Diet.all
+        @goals = Goal.all
     end
 
     def update
@@ -44,7 +58,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(:username, :first_name, :last_name, :image, :age, :height, :weight, :gender, :activity, :password, :fit_goal)
+        params.require(:user).permit(:username, :first_name, :last_name, :image, :age, :height, :weight, :gender, :activity, :password, :goal_id)
     end
 
 

@@ -1,3 +1,6 @@
+<%= button_to "Delete Account", user_path(@user), method: :delete  %>
+<%= button_to "Edit Account", edit_user_path(@user), method: :get  %>
+
 <%= image_tag url_for(@user.image) %>
 
 <h3> <%= @user.full_name %> </h3>
@@ -10,14 +13,22 @@
 <li> Activity: <%= @user.activity %> </li>
 <li> Goal: <%= @user.goal.name %> </li>
 
-<h5>Recommened Lifestyle: </h5>
-<li><%= link_to @user.goal.diet.name, diet_path(@user.goal.diet)%></li>
 <br>
-<h5>My Custom Lifestyle: </h5>
+
+<h5> ACE Recommended Lifestyle: </h5>
+<li> <%= link_to @user.goal.diet.name, diet_path(@user.goal.diet) %> </li>
+
+<br>
+
+<h5>My Current Lifestyle: </h5>
 <% if @user.find_current_diet_plan%>
-<%= @user.find_current_diet_plan.diet.name%>
+<li><%= link_to @user.find_current_diet_plan.diet.name, diet_path(@user.find_current_diet_plan.diet)%></li>
+<br>
+<h5>Change Current Lifestyle:</h5>
+<%= render "form" %>
 <%else%>
  <%= "You have no other lifestyle plan. Try the recommended diet or choose a custom plan." %>
+ <%= render "form" %>
 <%end%> 
 <br>
 <h5>Your Workout: </h5>
@@ -25,10 +36,6 @@
 
 <br>
 <br>
-<%= link_to "Choose Other Lifestyle Plan ", edit_goal_diet_path(@user) %>
 <br>
 <br>
-<%= button_to "Delete Account", user_path(@user), method: :delete  %>
-<%= button_to "Edit Account", edit_user_path(@user), method: :get  %>
-
 

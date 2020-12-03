@@ -25,7 +25,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @diets = Diet.all 
+        @goal_diet = GoalDiet.new
+        @diets = Diet.all
 
         if @user == @current_user
             render :show

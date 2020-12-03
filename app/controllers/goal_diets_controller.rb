@@ -7,7 +7,6 @@ class GoalDietsController < ApplicationController
     def new
         @goal_diet = GoalDiet.new
         @diets = Diet.all
-        @users = User.all
     end
 
     def show
@@ -15,10 +14,10 @@ class GoalDietsController < ApplicationController
     end
 
 
-    # def create
-    #     @goal_diet = GoalDiet.create(goal_diet_params)
-    #     redirect_to user_path(@goal_diet.user_id, @goal_diet)
-    # end
+    def create
+        @current_user.goal_diets << GoalDiet.create(goal_diet_params)
+        redirect_to user_path(@current_user)
+    end
 
 
     def edit
@@ -37,7 +36,7 @@ class GoalDietsController < ApplicationController
     private
 
     def goal_diet_params
-        params.require(:goal_diet).permit(:diet_id, :user_id, :workout_id)
+        params.require(:goal_diet).permit(:diet_id, :goal_id)
     end
 
 end

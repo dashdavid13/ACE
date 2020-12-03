@@ -1,0 +1,10 @@
+<%= form_for @goal_diet do |f| %>
+    <%= f.label " " %>
+    <%= f.collection_select :diet_id, @diets, :id, :name, prompt: true  %>
+  <br>
+  <%= f.hidden_field :goal_id, value: @current_user.goal.id %>
+<br>
+
+  <%= f.submit "Update Lifestyle" %>
+  
+  <% end %>

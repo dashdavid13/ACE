@@ -1,1 +1,12 @@
-Hi
+<h1>Choose a new lifestyle</h1>
+
+<%= form_for @goal_diet do |f| %>
+    <%= f.label :diet_id %>
+    <%= f.collection_select :diet_id, @diets, :id, :name  %>
+  <br>
+  <%= f.hidden_field :goal_id, value: @current_user.goal.id %>
+<br>
+
+  <%= f.submit %>
+  
+  <% end %>

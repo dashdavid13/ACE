@@ -4,9 +4,9 @@
     <%= gw.workout.name %>
     <li>Description: <%= gw.workout.description %> </li>
     <li>Details: <%= gw.workout.detail %> </li>
-    <li><%= image_tag gw.workout.image %></li>
-    <li><%= link_to "Workouts and Correct Form", gw.workout.video %> </li>
+    <li><img src="<%= gw.workout.image %>" /></li>
+    <li><%= link_to "Workouts and Correct Form", gw.workout.video, :target => "_blank" %> </li>
     <br>
     <%end%>
 
-
+ 

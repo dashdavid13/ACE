@@ -1,0 +1,11 @@
+<h3> Your Workout Options for <%= @goal.name %>: </h3>
+
+
+<% @goal.workouts.each do |workout| %>
+    <li> <%= workout.name %></li>
+    <li>Description: <%= workout.description %> </li>
+    <li>Details: <%= workout.detail %> </li>
+    <li><img src="<%= workout.image %>" /></li>
+    <li><%= link_to "Video for Workouts & Correct Form", workout.video, :target => "_blank" %> </li>
+    <br>
+    <% end %>

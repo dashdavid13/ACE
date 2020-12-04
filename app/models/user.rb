@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :diets, through: :goal_diets
     has_secure_password
     validates :username, uniqueness: true
-    validates :first_name, :last_name, :age, :height, :weight, :gender, :activity, :password, :goal_id, presence: true 
+    validates :first_name, :last_name, :age, :height, :weight, :gender, :activity, :goal_id, presence: true 
 
     def full_name 
         "#{self.first_name}  #{self.last_name}"
@@ -52,7 +52,6 @@ end
   def gain_muscle_cals #gain 1/2 pound a week
     self.maintain_cals + 250
   end
-
 
   def cal_goals
     if self.goal.name == "Weight Loss"

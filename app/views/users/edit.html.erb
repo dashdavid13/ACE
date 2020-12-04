@@ -1,6 +1,14 @@
 
  <h1>Edit Your Account </h1>
 
+ <% if flash[:errors] %>
+ <ul>
+   <% flash[:errors].each do |error| %>
+     <li><%= error %></li>
+   <% end%>
+ </ul>
+ <% end%>
+
   <%= form_for @user do |f| %>
     
       <%= f.label :username  %>
@@ -14,9 +22,6 @@
     <br>
       <%= f.label :last_name  %>
       <%= f.text_field :last_name  %>
-    <br>
-      <%= f.label :image  %>
-      <%= f.file_field :image %> 
     <br>
       <%= f.label :height  %>
       <%= f.number_field :height  %>

@@ -1,8 +1,8 @@
 class GoalDietsController < ApplicationController
 
-    def index
-        @goal_diets = GoalDiet.all
-    end
+    # def index
+    #     @goal_diets = GoalDiet.all
+    # end
 
     def new
         @goal_diet = GoalDiet.new
@@ -20,18 +20,18 @@ class GoalDietsController < ApplicationController
     end
 
 
-    def edit
-        @user = User.find(params[:id])
-        @users = User.all
-        @diets = Diet.all
+    # def edit
+    #     @user = User.find(params[:id])
+    #     @users = User.all
+    #     @diets = Diet.all
         
-    end
+    # end
 
-    def update
-        @goal_diet = GoalDiet.find(params[:id])
-        @goal_diet.update(goal_diet_params)
-        redirect_to user_path(@goal_diet.user_id)
-    end
+    # def update
+    #     @goal_diet = GoalDiet.find(params[:id])
+    #     @goal_diet.update(goal_diet_params)
+    #     redirect_to user_path(@goal_diet.user_id)
+    # end
 
     private
 

@@ -12,6 +12,11 @@
 <li> Gender: <%= @user.gender %> </li>
 <li> Activity: <%= @user.activity %> </li>
 <li> Goal: <%= @user.goal.name %> </li>
+<br>
+
+Recommended Calories: <%= @user.cal_goals.round() %>
+<br>
+Daily Water Intake: <%= @user.water.round() %> cups/day
 
 <br>
 
@@ -27,11 +32,11 @@
 <h5>Change Current Lifestyle:</h5>
 <%= render "form" %>
 <%else%>
- <%= "You have no other lifestyle plan. Try the recommended diet or choose a custom plan." %>
+ <%= "You have no other lifestyle plan. Try the recommended diet or choose a different lifestyle plan." %>
  <%= render "form" %>
 <%end%> 
 <br>
-<h5><%= link_to "Your Workouts", goal_workout_path(@current_user.goal.goal_workouts) %> </h5>
+<h5><%= link_to "Check Out Your Recommended Workouts", goal_workout_path(@current_user.goal.goal_workouts) %> </h5>
 
 
 

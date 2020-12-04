@@ -2,5 +2,5 @@
 
 <li> Description: <%= @diet.description %> </li>
 <li> Restrictions: <%= @diet.restriction %> </li>
-<li> Calories: <%= @diet.calorie %> </li>
-<li> Water Intake: <%= @diet.water %> </li>
+<li> Recommended Calories: <%= @current_user.cal_goals.round() %> </li>
+<li> Daily Water Intake: <%= @current_user.water.round() %> cups per day </li>

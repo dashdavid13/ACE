@@ -4,7 +4,8 @@ class User < ApplicationRecord
     has_many :goal_diets
     has_many :diets, through: :goal_diets
     has_secure_password
-    #has_one_attached :image
+    validates :username, uniqueness: true
+    validates :first_name, :last_name, :age, :height, :weight, :gender, :activity, :password, :goal_id, presence: true 
 
     def full_name 
         "#{self.first_name}  #{self.last_name}"

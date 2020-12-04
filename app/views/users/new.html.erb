@@ -1,6 +1,12 @@
-
-
   <h1>Sign Up</h1>
+
+  <% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end%>
+  </ul>
+  <% end%>
 
   <%= form_for @user do |f| %>
     
@@ -15,9 +21,6 @@
     <br>
       <%= f.label :last_name  %>
       <%= f.text_field :last_name  %>
-    <br>
-      <%= f.label :image  %>
-      <%= f.file_field :image %> 
     <br>
       <%= f.label :age  %>
       <%= f.number_field :age  %>
@@ -39,6 +42,7 @@
       <%= f.label :goal_id %>
       <%= f.collection_select :goal_id, @goals, :id, :name  %>
     <br>
+      <%= f.hidden_field :image, value: "https://cdn.onlinewebfonts.com/svg/img_534267.png" %>
 
     
     <%= f.submit %>

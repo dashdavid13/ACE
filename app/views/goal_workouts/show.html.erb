@@ -4,7 +4,9 @@
     <%= gw.workout.name %>
     <li>Description: <%= gw.workout.description %> </li>
     <li>Details: <%= gw.workout.detail %> </li>
-    <li>Need Image Here</li>
-    <li>YouTube Link: <%= gw.workout.video %> </li>
+    <li><%= image_tag gw.workout.image %></li>
+    <li><%= link_to "Workouts and Correct Form", gw.workout.video %> </li>
     <br>
     <%end%>
+
+

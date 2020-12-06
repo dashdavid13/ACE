@@ -1,7 +1,7 @@
 
 
-<li><%= button_to "Edit Account", edit_user_path(@user), method: :get  %></li>
-<li><%= button_to "Delete Account", user_path(@user), method: :delete  %> </li>
+<li class="top"><%= button_to "Edit Account", edit_user_path(@user), method: :get  %></li>
+<li class="top"><%= button_to "Delete Account", user_path(@user), method: :delete  %> </li>
 
 
 <%= image_tag url_for(@user.image) %>

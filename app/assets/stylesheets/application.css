@@ -19,13 +19,20 @@
     background-color: darkgray;
     height: 100px;
  }
-
+/* 
  .topnav li {
      display: inline-block;
      line-height: 100px;
      padding: 0px 15px;
 
- }
+ } */
+
+ .top {
+    display: inline-block;
+    line-height: 100px;
+    padding: 5px 15px;
+
+}
 
  .topnav li a {
      color: black;

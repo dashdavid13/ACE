@@ -1,5 +1,5 @@
 
- <h1>Edit Your Account </h1>
+
 
  <% if flash[:errors] %>
  <ul>
@@ -8,7 +8,7 @@
    <% end%>
  </ul>
  <% end%>
-
+<div class= "edit">
   <%= form_for @user do |f| %>
     
       <%= f.label :username  %>
@@ -23,16 +23,14 @@
       <%= f.label :last_name  %>
       <%= f.text_field :last_name  %>
     <br>
-      <%= f.label :height  %>
+      <%= f.label :height %> (inches)
       <%= f.number_field :height  %>
     <br>
       <%= f.label :weight  %>
       <%= f.number_field :weight  %>
     <br>
-      <%= f.label :Male  %>
-      <%= f.radio_button :gender, 'Male'  %>
-      <%= f.label :Female  %>
-      <%= f.radio_button :gender, 'Female'  %>
+    <%= f.label :gender  %>
+    <%= f.select :gender, ['Male','Female'], :prompt => 'Select One' %>
     <br>
       <%= f.label :activity  %>
       <%= f.select :activity, ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extremely Active'], :prompt => 'Select One' %>
@@ -42,6 +40,7 @@
     <br>
 
     
-    <%= f.submit %>
+    <%= f.submit "Update Account", class: "btn btn-primary btn-block btn-large"%>
     
   <% end %>
+  </div>

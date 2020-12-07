@@ -1,4 +1,5 @@
-  <h1>Sign Up</h1>
+
+  <div class="sign_up">
 
   <% if flash[:errors] %>
   <ul>
@@ -25,26 +26,26 @@
       <%= f.label :age  %>
       <%= f.number_field :age  %>
     <br>
-      <%= f.label :height  %>
+      <%= f.label :height %> (inches)
       <%= f.number_field :height  %>
     <br>
       <%= f.label :weight  %>
       <%= f.number_field :weight  %>
     <br>
-      <%= f.label :Male  %>
-      <%= f.radio_button :gender, 'Male'  %>
-      <%= f.label :Female  %>
-      <%= f.radio_button :gender, 'Female'  %>
+    <%= f.label :gender  %>
+    <%= f.select :gender, ['Male','Female'], :prompt => 'Select One' %>
     <br>
       <%= f.label :activity  %>
-      <%= f.select :activity, ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extremely Active'], :prompt => 'Select One' %>
+      <%= f.select :activity, ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extremely Active'], :prompt => 'Select One' , class: 'round'%>
     <br>
       <%= f.label :goal_id %>
-      <%= f.collection_select :goal_id, @goals, :id, :name  %>
+      <%= f.collection_select :goal_id, @goals, :id, :name, :prompt => 'Select One' , class: 'round' %>
     <br>
       <%= f.hidden_field :image, value: "https://cdn.onlinewebfonts.com/svg/img_534267.png" %>
-
+      <br>
     
-    <%= f.submit %>
+    <%= f.submit "Sign Up", class: "btn btn-primary btn-block btn-large"%>
     
   <% end %>
+
+  </div>

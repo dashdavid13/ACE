@@ -25,8 +25,12 @@
         <a class="nav-link" href="<%= user_path(@current_user)%>"> My Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Lifestyle</a>
-      </li>
+      <% if @current_user.find_current_diet_plan%>
+        <a class="nav-link" href="<%=diet_path(@current_user.find_current_diet_plan.diet)%>">Lifestyle</a>
+      <% else %>
+      <a class="nav-link" href="<%=diet_path(@current_user.goal.diet)%>">Lifestyle</a>
+      <% end %>
+        </li>
       <li class="nav-item">
         <a class="nav-link" href="<%= goal_path(@current_user.goal) %>">Workouts</a>
       </li>
@@ -35,9 +39,9 @@
           Settings
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Edit Account</a>
-          <a class="dropdown-item" href="#">Delete Account</a>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="<%= edit_user_path(@current_user)%>">Edit Account</a>
+          <a class="dropdown-item" href="<%= user_path(@current_user) %> " data-method= "delete" > Delete Account</a>  
+          <a class="dropdown-item" href="/sessions/logout" data-method= "delete" >Logout</a>
         <% else %>
         <li class="nav-item">
         <a class="nav-link" href="<%= new_login_path %>">Login</a>
@@ -56,15 +60,8 @@
 
    
   <div class="topnav">
-     
-    <% if @current_user %>
-    <li class="top"><%= link_to "Logout", logout_path, method: :delete  %></li>
-    <li class="top"><%= link_to "Profile", user_path(@current_user)%>
-    <li class="top">Welcome <%= @current_user.full_name %></li>
-    <% else %>
-    <li class="top"><%= link_to "Sign Up", new_user_path %></li>
-    <li class="top"><%= link_to "Login", new_login_path %></li>
-    <% end %>
+  
+ 
     <%= yield %>
   </div>
 

@@ -1,4 +1,6 @@
 
+<div class="login">
+
 <% if flash[:error] %>
 <p><%= flash[:error] %></p>
 <% end %>
@@ -11,11 +13,10 @@
         <%= f.label :password %>
         <%= f.password_field :password %>
    <br>
-    <%= f.submit "Log in"%>
+    <%= f.submit "Log in", class: "btn btn-primary btn-block btn-large"%>
     
     
   <% end %>
-<br>
-<br>
+  </div>
 
 

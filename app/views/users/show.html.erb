@@ -1,39 +1,54 @@
 
-
+<div class = "user_profile">
 <%= image_tag url_for(@user.image), class: 'prof_pic' %>
 
-
+<br>
+<br>
 <h1> <%= @user.full_name %> </h1>
-<h3>Goal: <%= @user.goal.name %> </h3>
-<h3><%= link_to "Workout Options for You", goal_path(@user.goal)%> </h3>
+
 
 <br>
-<li> Age: <%= @user.age %> </li>
-<li> Height: <%= @user.height %> </li>
-<li> Weight: <%= @user.weight %> </li>
-<li> Gender: <%= @user.gender %> </li>
-<li> Activity: <%= @user.activity %> </li>
-
+Age: <%= @user.age %> 
 <br>
-
+Height: <%= @user.height %> inches
 <br>
-
-<h3> ACE Recommended Lifestyle: </h3>
-<li> <%= link_to @user.goal.diet.name, diet_path(@user.goal.diet) %> </li>
+Weight: <%= @user.weight %> lbs
+<br>
+Gender: <%= @user.gender %> 
+<br>
+Activity: <%= @user.activity %> 
 
 <br>
 
-<h3>My Current Lifestyle: </h3>
+<br>
+
+<h4><%= @user.goal.name %></h4>
+<br>
+<h5>Recommended Lifestyle </h5>
+
+<%= link_to @user.goal.diet.name, diet_path(@user.goal.diet) %> 
+<br>
+<br>
+<h5>My Lifestyle </h5>
 <% if @user.find_current_diet_plan%>
-<li><%= link_to @user.find_current_diet_plan.diet.name, diet_path(@user.find_current_diet_plan.diet)%></li>
+<%= link_to @user.find_current_diet_plan.diet.name, diet_path(@user.find_current_diet_plan.diet)%>
 <br>
-<h3>Change Current Lifestyle:</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <%= render "form" %>
 <%else%>
- <%= "You don't have any other lifestyle plan. Try the recommended diet or choose a different lifestyle plan." %>
+<div class = "recommended">
+<%= "Want a different lifestyle plan?" %>
+</div>
  <%= render "form" %>
 <%end%> 
 <br>
+<br>
+<br>
 
 
 
@@ -49,4 +64,4 @@
 <br>
 <br>
 <br>
-
+</div>

@@ -29,7 +29,7 @@
       <%= f.label :height %> (inches)
       <%= f.number_field :height  %>
     <br>
-      <%= f.label :weight  %>
+      <%= f.label :weight  %> (lbs)
       <%= f.number_field :weight  %>
     <br>
     <%= f.label :gender  %>
@@ -42,6 +42,8 @@
       <%= f.collection_select :goal_id, @goals, :id, :name, :prompt => 'Select One' , class: 'round' %>
     <br>
       <%= f.hidden_field :image, value: "https://cdn.onlinewebfonts.com/svg/img_534267.png" %>
+
+      
       <br>
     
     <%= f.submit "Sign Up", class: "btn btn-primary btn-block btn-large"%>

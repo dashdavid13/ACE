@@ -1,10 +1,14 @@
+<div class= "edit2">
 <%= form_for @goal_diet do |f| %>
     <%= f.label " " %>
-    <%= f.collection_select :diet_id, @diets, :id, :name, prompt: true  %>
+    <%= f.collection_select :diet_id, @diets, :id, :name, prompt: "Choose a Different Lifestyle"  %>
   <br>
   <%= f.hidden_field :goal_id, value: @current_user.goal.id %>
 <br>
 
-  <%= f.submit "Update Lifestyle" %>
-  
+  <%= f.submit "Update Lifestyle" , class: "btn btn-primary btn-block btn-large" %>
+  <br>
+  <br>
+  <br>
   <% end %>
+</div>

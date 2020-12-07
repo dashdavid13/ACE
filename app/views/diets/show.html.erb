@@ -1,6 +1,32 @@
-<h3><%= @diet.name %></h3>
+<div class= "diet">
+<h1><%= @diet.name %></h1>
 
-<li> Description: <%= @diet.description %> </li>
-<li> Restrictions: <%= @diet.restriction %> </li>
-<li> Recommended Calories: <%= @current_user.cal_goals.round() %> </li>
-<li> Daily Water Intake: <%= @current_user.water.round() %> cups per day </li>
+<%= @diet.description %> 
+<br>
+<br>
+Restrictions: <%= @diet.restriction %> 
+<br>
+<br>
+<div class= "calories">
+Daily Caloric Intake
+<br>
+<div class= "caloric">
+<%= @current_user.cal_goals.round() %> 
+</div>
+</div>
+
+<div class= "water">
+ Daily Water Intake 
+ <br>
+ <div class= "wat">
+ <%= @current_user.water.round() %> cups
+ </div>
+</div>
+<br>
+<br>
+</div>
+<br>
+<br>
+<br>
+
+  <%= image_tag ("veg.gif"), class: "veg"%>

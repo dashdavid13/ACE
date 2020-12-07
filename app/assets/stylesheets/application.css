@@ -14,6 +14,11 @@
  *= require_self
  */
 
+ html {
+	margin: auto;
+	width: 1450px;
+  }
+
  .navbar-brand {
         float: none;
         position: absolute;
@@ -43,13 +48,14 @@ CSS For Form Page */
 
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
-html { width: 100%; height:100%; overflow:hidden; }
+html { width: 100%; height:100%; overflow:auto;}
 
 body { 
 	width: 100%;
 	height:100%;
 	font-family: 'Open Sans', sans-serif;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151515cd', endColorstr='#092756',GradientType=1 );
+
 }
 .login{ 
 	position: absolute;
@@ -79,10 +85,11 @@ input {
 	-o-transition: box-shadow .5s ease;
 	-ms-transition: box-shadow .5s ease;
 	transition: box-shadow .5s ease;
+	
 }
 .sign_up, .edit{
     position: absolute;
-	top: 30%;
+	top: 45%;
 	left: 50%;
 	margin: -150px 0 0 -150px;
 	width:300px;
@@ -102,8 +109,41 @@ input {
     padding: 25px;
       
 }
+
+#navbarNavDropdown{
+	padding-top: 50px; 
+
+}
+
+.nav-link, .nav-item {
+	padding-top: 50px;
+	padding-left: 15px;
 }
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
 
+
+/* bike animation */
+
+@keyframes  biking{
+	0% {
+	   transform: translate(350%,0);
+	}
+	100% {
+		 transform: translate(0,0);
+	}
+}
+
+.bike{
+	animation-name: biking;
+	animation-iteration-count: infinite;
+	animation-duration: 3000ms;
+	animation-timing-function: linear;
+	animation-direction: reverse;
+	animation-play-state: running;
+	padding-top: 320px;
+	width: 25%;
+	height: auto;
+	
+  }
 
 

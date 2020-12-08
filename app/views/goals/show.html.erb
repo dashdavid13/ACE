@@ -1,22 +1,34 @@
-<h3 class= "work_title"> Workouts for <%= @goal.name %> </h3> 
+<h3 class= "work_title"> <%= @goal.name %> Workouts</h3> 
 <br>
 <br>   
     
 <div class="slider">
-<% @goal.workouts.each do |workout| %>
-  <div class="slide" id="slide-1">
 
-  <%= workout.name %>
+<% @goal.workouts.each do |workout| %>
+
+  <div class="slide" id="slide-1">
+  <img class= 'workout_image' src="<%= workout.image%>" >
+  <br>
+  <div class= "workout_title">
+  <br>
+  <h4><%= workout.name %></h4>
+  </div>
+  
     <br>
-    Description: <%= workout.description %> 
+    <%= workout.description %> 
     <br>
-    Details: <%= workout.detail %> 
     <br>
-    <img class= 'workout_image' src="<%= workout.image%>" >
+     <%= workout.detail %> 
     <br>
-    <%= link_to "Correct Form and Workout Video", workout.video, :target => "_blank" %> 
+    
+    <br>
+    <%= link_to "Correct Form Video", workout.video, :target => "_blank" %> 
   
   </div>
   
 <% end %>
 </div>
+<br>
+<br>
+<br>
+<br>

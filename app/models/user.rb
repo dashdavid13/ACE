@@ -51,7 +51,7 @@ end
 
   def gain_muscle_cals #gain 1/2 pound a week
     self.maintain_cals + 250
-    byebug
+    
   end
 
   def cal_goals

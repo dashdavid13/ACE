@@ -28,7 +28,7 @@
       <% if @current_user.find_current_diet_plan%>
         <a class="nav-link" href="<%=diet_path(@current_user.find_current_diet_plan.diet) %>"><%= image_tag("lifestyle.png", class: 'life') %></a>
       <% else %>
-      <a class="nav-link" href="<%=diet_path(@current_user.goal.diet)%>"></a>
+      <a class="nav-link" href="<%=diet_path(@current_user.goal.diet)%>"><%= image_tag("lifestyle.png", class: 'life') %></a>
       
 
       <% end %>
